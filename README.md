@@ -12,11 +12,24 @@ The tool runs a small server (WebDAV or NFS) that serves a virtual directory of 
 
 There are no real files on disk. The mount point is a virtual filesystem backed by your server process. Nothing persists if the server stops.
 
+## Install
+
+Download the binary (macOS arm64):
+
+```
+curl -sL https://github.com/dweinstein/canary/releases/download/v0.1.0/canary -o /usr/local/bin/canary && chmod +x /usr/local/bin/canary
+```
+
+Or build from source:
+
+```
+go install github.com/dweinstein/canary@latest
+```
+
 ## Quick start
 
 ```
-go build -o canary .
-./canary ~/.secrets.d
+canary ~/.secrets.d
 ```
 
 That's it. The directory `~/.secrets.d` now contains bait files. Open another terminal and try:
